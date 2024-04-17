@@ -1,12 +1,20 @@
 <div class="parent">
     <div class="child2">
         <h1>Login Form</h1>
-        <form>
-            <input type="email" placeholder="Email">
-            <br>
-            <input type="password" placeholder="password">
-            <br>
-            <button>LOGIN</button>
+        <form [formGroup]="loginform">
+            <input type="email" placeholder="Email" formControlName="email">
+            <div *ngIf="loginform.get('email')?.touched">
+                <p class="error" *ngIf="loginform.get('email')?.errors?.['required']">Email is required</p>
+                <p class="error" *ngIf="loginform.get('email')?.errors?.['email']">wrong email</p>
+            </div>
+            <input type="password" placeholder="password" formControlName="password">
+            <div *ngIf="loginform.get('password')?.touched">
+                <p class="error" *ngIf="loginform.get('password')?.errors?.['required']">password is required</p>
+                <p class="error" *ngIf="loginform.get('password')?.errors?.['minlength']">Minimum 6 characters</p>
+                <p class="error" *ngIf="loginform.get('password')?.errors?.['maxlength']">Maximum 10 characters only</p>
+                <p class="error" *ngIf="loginform.get('password')?.errors?.['pattern']">Must have One captial letter </p>
+            </div>
+            <button (click)="login()">LOGIN</button>
         </form>
     </div>
 </div>

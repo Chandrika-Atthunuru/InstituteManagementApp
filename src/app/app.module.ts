@@ -9,13 +9,17 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FallbackComponent } from './components/fallback/fallback.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateStudentComponent } from './components/create-student/create-student.component';
+import { AllStudentsComponent } from './components/all-students/all-students.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    FallbackComponent
+    FallbackComponent,
+    CreateStudentComponent,
+    AllStudentsComponent
   ],
   imports: [
     BrowserModule,

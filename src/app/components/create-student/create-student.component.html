@@ -19,6 +19,23 @@
     <label for="">Batch: </label>
     <input type="text" formControlName="batch">
     <br><br>
+    <div formGroupName="address">
+      <label for="">City: </label>
+      <input type="text" formControlName="city">
+      <br><br>
+      <label for="">Mandal: </label>
+      <input type="text" formControlName="mandal">
+      <br><br>
+      <label for="">district: </label>
+      <input type="text" formControlName="district">
+      <br><br>
+      <label for="">State: </label>
+      <input type="text" formControlName="state">
+      <br><br>
+      <label for="">Pincode: </label>
+      <input type="text" formControlName="pincode">
+      <br><br>
+    </div>
     <button (click)="submit()" class="btn btn-primary">Submit</button>
   </form>
 </div>

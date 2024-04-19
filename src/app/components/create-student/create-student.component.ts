@@ -23,6 +23,12 @@ public studentform:FormGroup=new FormGroup({
     pincode:new FormControl(),
   }),
   education:new FormArray([]),
+  company:new FormGroup({
+    name:new FormControl(),
+    location:new FormControl(),
+    package:new FormControl(),
+    offerDate:new FormControl()
+  })
 })
 get educationFormArray(){
   return this.studentform.get("education")as FormArray

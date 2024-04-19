@@ -20,6 +20,7 @@
     <input type="text" formControlName="batch">
     <br><br>
     <div formGroupName="address">
+      <h4><u>Address</u></h4>
       <label for="">City: </label>
       <input type="text" formControlName="city">
       <br><br>
@@ -54,6 +55,22 @@
       </div>   
   </div>
     <button (click)="add()" class="btn btn-primary">Add</button>
+    <br>
+    <div formGroupName="company">
+      <h4><u>Company</u></h4>
+      <label for="">Name: </label>
+      <input type="text" formControlName="name">
+      <br><br>
+      <label for="">Location: </label>
+      <input type="text" formControlName="location">
+      <br><br>
+      <label for="">Package: </label>
+      <input type="text" formControlName="package">
+      <br><br>
+      <label for="">OfferDate: </label>
+      <input type="text" formControlName="offerDate">
+      <br><br>
+    </div>
     <br>
     <button (click)="submit()" class="btn btn-primary">Submit</button>
   </form>

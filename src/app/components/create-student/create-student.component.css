@@ -8,3 +8,7 @@ h1,h4{
 button{
     margin: 20px;
 }
+.error{
+    color: red;
+    padding-left: 180px;
+}

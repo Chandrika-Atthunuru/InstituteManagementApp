@@ -36,6 +36,24 @@
       <input type="text" formControlName="pincode">
       <br><br>
     </div>
+    <div formArrayName="education">
+      <div *ngFor="let educations of educationFormArray.controls; let i=index">
+          <div formGroupName="{{i}}">
+              <h4>Education{{i+1}}</h4>
+             <label for="">Qualification: </label>
+             <input type="text" formControlName="qualification">
+             <br><br>
+             <label for="">Year: </label>
+             <input type="number" formControlName="year">
+             <br><br>
+             <label for="">Percentage: </label>
+             <input type="number" formControlName="percentage">
+             <br><br>
+          </div>
+      </div>   
+  </div>
+    <button (click)="add()" class="btn btn-primary">Add</button>
+    <br>
     <button (click)="submit()" class="btn btn-primary">Submit</button>
   </form>
 </div>

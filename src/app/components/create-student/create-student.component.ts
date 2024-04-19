@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Student } from 'src/app/models/student';
 import { Token } from 'src/app/models/token';
+import { StudentService } from 'src/app/services/student.service';
 
 @Component({
   selector: 'app-create-student',
@@ -31,7 +32,7 @@ public studentform:FormGroup=new FormGroup({
   }),
   sourceType:new FormControl(null,[Validators.required]),
 })
-constructor(){
+constructor(private _studentService:StudentService){
   this.studentform.get('sourceType')?.valueChanges.subscribe(
     (data:any)=>{
       if(data=='direct'){
@@ -62,6 +63,15 @@ delete(i:number){
 }
 
 submit(){
-this.studentform.markAllAsTouched();
+this.studentform.markAllAsTouched()
+this._studentService.poststudentdata(this.studentform.value).subscribe(
+  (data:Token)=>{
+    alert("created successfully")
+    this.studentform.reset();
+  },
+  (err:Token)=>{
+   alert("internal server error")
+  }
+)
 }
 }

@@ -3,38 +3,74 @@
   <form [formGroup]="studentform">
     <label for="">Name: </label>
     <input type="text" formControlName="name">
+    <div *ngIf="studentform.get('name')?.touched && studentform.get('name')?.invalid">
+       <p class="error" *ngIf="studentform.get('name')?.errors?.['required']">Name is required</p>
+       <p class="error" *ngIf="studentform.get('name')?.errors?.['minlength']">Name must have 3 characters</p>
+    </div>
     <br><br>
     <label for="">Gender: </label>
     <input type="radio" value="male" formControlName="gender">
     <label for="">Male</label>
     <input type="radio" value="female" formControlName="gender">
     <label for="">FeMale</label>
+    <div *ngIf="studentform.get('gender')?.touched && studentform.get('gender')?.invalid">
+        <p class="error" *ngIf="studentform.get('gender')?.errors?.['required']">Must select one option</p>
+    </div>
     <br><br>
     <label for="">Mobile: </label>
-    <input type="text" formControlName="mobile">
+    <input type="number" formControlName="mobile">
+    <div *ngIf="studentform.get('mobile')?.touched && studentform.get('mobile')?.invalid">
+      <p class="error" *ngIf="studentform.get('mobile')?.errors?.['required']">Mobile number required</p>
+      <p class="error" *ngIf="studentform.get('mobile')?.errors?.['min']">phonenumber allowed 10 digits </p>
+      <p class="error" *ngIf="studentform.get('mobile')?.errors?.['max']">phonenumber allowed 10 digits </p>
+   </div>
     <br><br>
     <label for="">Email: </label>
     <input type="email" formControlName="email">
+    <div *ngIf="studentform.get('email')?.touched && studentform.get('email')?.invalid">
+      <p class="error" *ngIf="studentform.get('email')?.errors?.['required']">Email is required</p>
+      <p class="error" *ngIf="studentform.get('email')?.errors?.['email']">Invalid Email</p>
+   </div>
     <br><br>
     <label for="">Batch: </label>
-    <input type="text" formControlName="batch">
+    <input type="date" formControlName="batch">
+    <div *ngIf="studentform.get('batch')?.touched && studentform.get('batch')?.invalid">
+      <p class="error" *ngIf="studentform.get('batch')?.errors?.['required']">Batch is required</p>
+   </div>
     <br><br>
     <div formGroupName="address">
       <h4><u>Address</u></h4>
       <label for="">City: </label>
       <input type="text" formControlName="city">
+      <div *ngIf="studentform.get('address.city')?.touched && studentform.get('address.city')?.invalid">
+        <p class="error" *ngIf="studentform.get('address.city')?.errors?.['required']">City is required</p>
+      </div>
       <br><br>
       <label for="">Mandal: </label>
       <input type="text" formControlName="mandal">
+      <div *ngIf="studentform.get('address.mandal')?.touched && studentform.get('address.mandal')?.invalid">
+        <p class="error" *ngIf="studentform.get('address.mandal')?.errors?.['required']">Mandal is required</p>
+      </div>
       <br><br>
       <label for="">district: </label>
       <input type="text" formControlName="district">
+      <div *ngIf="studentform.get('address.district')?.touched && studentform.get('address.district')?.invalid">
+        <p class="error" *ngIf="studentform.get('address.district')?.errors?.['required']">District is required</p>
+      </div>
       <br><br>
       <label for="">State: </label>
       <input type="text" formControlName="state">
+      <div *ngIf="studentform.get('address.state')?.touched && studentform.get('address.state')?.invalid">
+        <p class="error" *ngIf="studentform.get('address.state')?.errors?.['required']">State is required</p>
+      </div>
       <br><br>
       <label for="">Pincode: </label>
-      <input type="text" formControlName="pincode">
+      <input type="number" formControlName="pincode">
+      <div *ngIf="studentform.get('address.pincode')?.touched && studentform.get('address.pincode')?.invalid">
+        <p class="error" *ngIf="studentform.get('address.pincode')?.errors?.['required']">Pincode is required</p>
+        <p class="error" *ngIf="studentform.get('address.pincode')?.errors?.['min']">min 6 digits </p>
+      <p class="error" *ngIf="studentform.get('address.pincode')?.errors?.['max']">max 6 digits </p>
+      </div>
       <br><br>
     </div>
     <div formArrayName="education">
@@ -43,12 +79,21 @@
               <h4>Education{{i+1}}</h4>
              <label for="">Qualification: </label>
              <input type="text" formControlName="qualification">
+             <div *ngIf="educationFormArray.controls[i].get('qualification')?.touched && educationFormArray.controls[i].get('qualification')?.invalid">
+              <p class="error" *ngIf="educationFormArray.controls[i].get('qualification')?.errors?.['required']">Qualification is required</p>
+            </div>
              <br><br>
              <label for="">Year: </label>
              <input type="number" formControlName="year">
+             <div *ngIf="educationFormArray.controls[i].get('year')?.touched && educationFormArray.controls[i].get('year')?.invalid">
+              <p class="error" *ngIf="educationFormArray.controls[i].get('year')?.errors?.['required']">Year is required</p>
+            </div>
              <br><br>
              <label for="">Percentage: </label>
              <input type="number" formControlName="percentage">
+             <div *ngIf="educationFormArray.controls[i].get('percentage')?.touched && educationFormArray.controls[i].get('percentage')?.invalid">
+              <p class="error" *ngIf="educationFormArray.controls[i].get('percentage')?.errors?.['required']">Percentage is required</p>
+            </div>
              <br><br>
              <button (click)="delete(i)" class="btn btn-danger">Delete</button>
           </div>
@@ -60,15 +105,27 @@
       <h4><u>Company</u></h4>
       <label for="">Name: </label>
       <input type="text" formControlName="name">
+      <div *ngIf="studentform.get('company.name')?.touched && studentform.get('company.name')?.invalid">
+        <p class="error" *ngIf="studentform.get('company.name')?.errors?.['required']">Name is required</p>
+      </div>
       <br><br>
       <label for="">Location: </label>
       <input type="text" formControlName="location">
+      <div *ngIf="studentform.get('company.location')?.touched && studentform.get('company.location')?.invalid">
+        <p class="error" *ngIf="studentform.get('company.location')?.errors?.['required']">Location is required</p>
+      </div>
       <br><br>
       <label for="">Package: </label>
       <input type="text" formControlName="package">
+      <div *ngIf="studentform.get('company.package')?.touched && studentform.get('company.package')?.invalid">
+        <p class="error" *ngIf="studentform.get('company.package')?.errors?.['required']">Package is required</p>
+      </div>
       <br><br>
       <label for="">OfferDate: </label>
       <input type="text" formControlName="offerDate">
+      <div *ngIf="studentform.get('company.offerDate')?.touched && studentform.get('company.offerDate')?.invalid">
+        <p class="error" *ngIf="studentform.get('company.offerDate')?.errors?.['required']">offerDate is required</p>
+      </div>
       <br><br>
     </div>
     <br>
@@ -78,6 +135,9 @@
       <label for="">Direct</label>
       <input type="radio" value="refer" formControlName="sourceType">
       <label for="">Refer</label>
+      <div *ngIf="studentform.get('sourceType')?.touched && studentform.get('sourceType')?.invalid">
+        <p class="error" *ngIf="studentform.get('sourceType')?.errors?.['required']">Must select one option</p>
+    </div>
     </div>
     <br><br>
     <div *ngIf="studentform.get('sourceType')?.value=='direct'">
@@ -86,10 +146,16 @@
        <label for="">Social media</label>
        <input type="radio" formControlName="sourceForm" value="office">
        <label for="">office</label>
+       <div *ngIf="studentform.get('sourceForm')?.touched && studentform.get('sourceForm')?.invalid">
+        <p class="error" *ngIf="studentform.get('sourceForm')?.errors?.['required']">Must select one option</p>
+    </div>
     </div>
     <div *ngIf="studentform.get('sourceType')?.value=='refer'">
       <label for="">ReferralName</label>
       <input type="text" formControlName="referralName">
+      <div *ngIf="studentform.get('referralName')?.touched && studentform.get('referralName')?.invalid">
+        <p class="error" *ngIf="studentform.get('referralName')?.errors?.['required']">Name is required</p>
+    </div>
     </div>
     <br>
     <button (click)="submit()" class="btn btn-primary">Submit</button>

@@ -72,6 +72,14 @@
       <br><br>
     </div>
     <br>
+    <div>
+      <label for="">SourceType: </label>
+      <input type="radio" value="direct" formControlName="sourceType">
+      <label for="">Direct</label>
+      <input type="radio" value="referral" formControlName="sourceType">
+      <label for="">Referral</label>
+    </div>
+    <br>
     <button (click)="submit()" class="btn btn-primary">Submit</button>
   </form>
 </div>

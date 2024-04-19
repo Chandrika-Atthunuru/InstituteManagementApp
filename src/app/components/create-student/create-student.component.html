@@ -158,6 +158,6 @@
     </div>
     </div>
     <br>
-    <button (click)="submit()" class="btn btn-primary">Submit</button>
+    <button [disabled]="studentform.invalid" (click)="submit()" class="btn btn-primary">Submit</button>
   </form>
 </div>

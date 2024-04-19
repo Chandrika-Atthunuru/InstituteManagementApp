@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Student } from 'src/app/models/student';
+import { Token } from 'src/app/models/token';
 
 @Component({
   selector: 'app-create-student',
@@ -35,7 +36,9 @@ get educationFormArray(){
     })
    )
  }
-
+delete(i:number){
+  this.educationFormArray.removeAt(i)
+}
 
 submit(){
 

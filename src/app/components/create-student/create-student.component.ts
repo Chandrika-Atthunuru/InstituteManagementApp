@@ -31,6 +31,20 @@ public studentform:FormGroup=new FormGroup({
   }),
   sourceType:new FormControl(),
 })
+constructor(){
+  this.studentform.get('sourceType')?.valueChanges.subscribe(
+    (data:any)=>{
+      if(data=='direct'){
+        this.studentform.addControl("sourceForm",new FormControl())
+        this.studentform.removeControl("referralName")
+      }
+      else{
+        this.studentform.addControl("referralName",new FormControl())
+        this.studentform.removeControl("sourceForm")
+      }
+    }
+  )
+}
 get educationFormArray(){
   return this.studentform.get("education")as FormArray
  }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { Student } from 'src/app/models/student';
 
 @Component({
   selector: 'app-create-student',
@@ -18,9 +19,23 @@ public studentform:FormGroup=new FormGroup({
     mandal:new FormControl(),
     district:new FormControl(),
     state:new FormControl(),
-    pincode:new FormControl()
-  })
+    pincode:new FormControl(),
+  }),
+  education:new FormArray([]),
 })
+get educationFormArray(){
+  return this.studentform.get("education")as FormArray
+ }
+ add(){
+   this.educationFormArray.push(
+    new FormGroup({
+      qualification: new FormControl(),
+      year: new FormControl(),
+      percentage: new FormControl(),
+    })
+   )
+ }
+
 
 submit(){
 

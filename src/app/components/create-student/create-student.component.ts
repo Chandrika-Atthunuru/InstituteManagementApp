@@ -28,7 +28,8 @@ public studentform:FormGroup=new FormGroup({
     location:new FormControl(),
     package:new FormControl(),
     offerDate:new FormControl()
-  })
+  }),
+  sourceType:new FormControl(),
 })
 get educationFormArray(){
   return this.studentform.get("education")as FormArray

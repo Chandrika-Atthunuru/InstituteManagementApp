@@ -1,10 +1,10 @@
-export interface Student {
+export interface Student  {
 name:string;
 gender: string;
 mobile: string;
 email: string;
 batch: string;
-address: {
+address:{
 city: string;
 mandal: string;
 district: string;

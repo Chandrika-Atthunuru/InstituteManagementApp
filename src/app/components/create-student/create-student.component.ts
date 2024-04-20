@@ -65,11 +65,11 @@ delete(i:number){
 submit(){
 this.studentform.markAllAsTouched()
 this._studentService.poststudentdata(this.studentform.value).subscribe(
-  (data:Token)=>{
+  (data:Student)=>{
     alert("created successfully")
     this.studentform.reset();
   },
-  (err:Token)=>{
+  (err:Student)=>{
    alert("internal server error")
   }
 )

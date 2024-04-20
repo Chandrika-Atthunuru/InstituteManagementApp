@@ -1,1 +1,32 @@
-<p>all-students works!</p>
+<table class="table table-bordered">
+    <thead class="table-dark" align="center" style="vertical-align: middle;">
+        <tr>
+            <th rowspan="2">Name</th>
+            <th rowspan="2">Gender</th>
+            <th rowspan="2">Mobile</th>
+            <th rowspan="2">Batch</th>
+            <th colspan="2">Address</th>
+            <th colspan="2">Company</th>
+        </tr>
+        <tr>
+            <th>District</th>
+            <th>state</th>
+            <th>Name</th>
+            <th>Package</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let studentdata of studentsdata">
+            <td>{{studentdata.name}}</td>
+            <td>{{studentdata.gender}}</td>
+            <td>{{studentdata.mobile}}</td>
+            <td>{{studentdata.batch}}</td>
+            <td>
+                {{studentdata.address.district}}
+            </td>
+            <td>{{studentdata.address.state}}</td>
+            <td>{{studentdata.company.name}}</td>
+            <td>{{studentdata.company.package}}</td>
+        </tr>
+    </tbody>
+</table>

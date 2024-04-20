@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Token } from '../models/token';
 import { Student } from '../models/student';
 
 @Injectable({
@@ -10,7 +9,11 @@ import { Student } from '../models/student';
 export class StudentService {
 
   constructor(private _httpClient:HttpClient) { }
-  poststudentdata(data:Student):Observable<Token>{
-    return this._httpClient.post<Token>("https://62b9299dff109cd1dc8ca34f.mockapi.io/students",data)
+  poststudentdata(data:Student):Observable<Student>{
+    return this._httpClient.post<Student>("https://62b9299dff109cd1dc8ca34f.mockapi.io/students",data)
+  }
+
+  getstudents():Observable<Student>{
+    return this._httpClient.get<Student>("https://62b9299dff109cd1dc8ca34f.mockapi.io/students");
   }
 }

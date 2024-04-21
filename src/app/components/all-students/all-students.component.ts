@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { filter } from 'rxjs';
 import { Student } from 'src/app/models/student';
 import { StudentService } from 'src/app/services/student.service';
 
@@ -11,7 +12,8 @@ export class AllStudentsComponent {
 public studentsdata:any= [];
 public pageno:number=0;
 public column:string="";
-public order:string=""
+public order:string="";
+public filtered:string="";
 constructor(private _studentService:StudentService){
 _studentService.getstudents().subscribe(
   (data:Student)=>{
@@ -40,6 +42,17 @@ sorting(){
       this.studentsdata=data;
     },
     (err:Student)=>{
+      alert("internal server error")
+    }
+  )
+}
+
+filtering(){
+  this._studentService.getfilteredstudents(this.filtered).subscribe(
+    (data:Student)=>{
+      this.studentsdata=data
+    },
+    (err:any)=>{
       alert("internal server error")
     }
   )

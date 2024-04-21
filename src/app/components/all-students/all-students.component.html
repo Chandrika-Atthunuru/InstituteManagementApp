@@ -18,6 +18,9 @@
     <option value="desc">Descending</option>
 </select>
 <button (click)="sorting()" class="btn btn-secondary">Sort</button>
+
+<label for="" class="ms-5">Filter: </label>
+<input type="text" [(ngModel)]="filtered" (keyup)="filtering()">
 <table class="table table-bordered mt-4">
     <thead class="table-dark" align="center" style="vertical-align: middle;">
         <tr>

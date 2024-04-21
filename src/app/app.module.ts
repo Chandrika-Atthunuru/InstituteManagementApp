@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateStudentComponent } from './components/create-student/create-student.component';
 import { AllStudentsComponent } from './components/all-students/all-students.component';
 import { StudentdetailsComponent } from './components/studentdetails/studentdetails.component';
+import { PercentagePipe } from './pipes/percentage.pipe';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { StudentdetailsComponent } from './components/studentdetails/studentdeta
     FallbackComponent,
     CreateStudentComponent,
     AllStudentsComponent,
-    StudentdetailsComponent
+    StudentdetailsComponent,
+    PercentagePipe,
+    
   ],
   imports: [
     BrowserModule,

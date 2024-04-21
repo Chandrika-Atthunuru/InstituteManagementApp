@@ -9,6 +9,7 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class AllStudentsComponent {
 public studentsdata:any= [];
+public pageno:number=0;
 constructor(private _studentService:StudentService){
 _studentService.getstudents().subscribe(
   (data:Student)=>{
@@ -19,4 +20,16 @@ _studentService.getstudents().subscribe(
   }
 )
 }
+
+pagination(){
+  this._studentService.getpagedstudents(this.pageno).subscribe(
+    (data:Student)=>{
+      this.studentsdata=data;
+    },
+    (err:any)=>{
+      alert("internal error server")
+    }
+  )
+}
+
 }

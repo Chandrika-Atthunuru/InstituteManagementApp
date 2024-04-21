@@ -30,6 +30,8 @@
             <th rowspan="2">Batch</th>
             <th colspan="2">Address</th>
             <th colspan="2">Company</th>
+            <th rowspan="2">Id</th>
+            <th rowspan="2">Actions</th>
         </tr>
         <tr>
             <th>District</th>
@@ -50,6 +52,10 @@
             <td>{{studentdata.address.state}}</td>
             <td>{{studentdata.company.name}}</td>
             <td>{{studentdata.company.package}}</td>
+            <td>{{studentdata.id}}</td>
+            <td>
+                <button (click)="view()" class="btn btn-primary">Details</button>
+            </td>
         </tr>
     </tbody>
 </table>

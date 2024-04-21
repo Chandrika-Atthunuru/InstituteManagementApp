@@ -11,6 +11,7 @@ import { FallbackComponent } from './components/fallback/fallback.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateStudentComponent } from './components/create-student/create-student.component';
 import { AllStudentsComponent } from './components/all-students/all-students.component';
+import { StudentdetailsComponent } from './components/studentdetails/studentdetails.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AllStudentsComponent } from './components/all-students/all-students.com
     DashboardComponent,
     FallbackComponent,
     CreateStudentComponent,
-    AllStudentsComponent
+    AllStudentsComponent,
+    StudentdetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -59,8 +59,8 @@ filtering(){
   )
 }
 
-view(){
- this._router.navigateByUrl("/dashboard/studentdetails")
+view(id:any){
+ this._router.navigateByUrl("/dashboard/studentdetails/"+id)
  
 }
 

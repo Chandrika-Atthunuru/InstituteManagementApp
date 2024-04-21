@@ -13,6 +13,7 @@ import { CreateStudentComponent } from './components/create-student/create-stude
 import { AllStudentsComponent } from './components/all-students/all-students.component';
 import { StudentdetailsComponent } from './components/studentdetails/studentdetails.component';
 import { PercentagePipe } from './pipes/percentage.pipe';
+import { PackagePipe } from './pipes/package.pipe';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { PercentagePipe } from './pipes/percentage.pipe';
     AllStudentsComponent,
     StudentdetailsComponent,
     PercentagePipe,
+    PackagePipe
     
   ],
   imports: [

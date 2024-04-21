@@ -1,4 +1,13 @@
-<table class="table table-bordered">
+<br>
+<label for="">pagination</label>
+<select name="" id="" [(ngModel)]="pageno" (change)="pagination()">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+</select>
+
+<table class="table table-bordered mt-4">
     <thead class="table-dark" align="center" style="vertical-align: middle;">
         <tr>
             <th rowspan="2">Name</th>

@@ -24,14 +24,14 @@
         <tr>
             <td>{{studentdetails.qualification}}</td>
             <td>{{studentdetails.year}}</td>
-            <td>{{studentdetails.percentage}}</td>
+            <td>{{studentdetails.percentage | percentage}}</td>
         </tr>
     </tbody>
 </table>
 <h3>Company information</h3>
 <h5>Name: {{studentdetails.company.name}}</h5>
 <h5>location: {{studentdetails.company.location}}</h5>
-<h5>package: {{studentdetails.company.package}}</h5>
+<h5>package: {{studentdetails.company.package | package}}</h5>
 <h5>offerdate: {{studentdetails.company.offerDate}}</h5>
 <h3>Referral information</h3>
 <h5>sourceType: {{studentdetails.sourceType}}</h5>

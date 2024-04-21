@@ -29,5 +29,9 @@ export class StudentService {
     return this._httpClient.get<Student>("https://62b9299dff109cd1dc8ca34f.mockapi.io/students?filter="+filtered)
   }
 
+  getdetails(id:Student):Observable<Student>{
+    return this._httpClient.get<Student>("https://62b9299dff109cd1dc8ca34f.mockapi.io/students/"+id)
+  }
+
   
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { Student } from 'src/app/models/student';
 import { StudentService } from 'src/app/services/student.service';
@@ -14,7 +15,7 @@ public pageno:number=0;
 public column:string="";
 public order:string="";
 public filtered:string="";
-constructor(private _studentService:StudentService){
+constructor(private _studentService:StudentService, private _router:Router){
 _studentService.getstudents().subscribe(
   (data:Student)=>{
     this.studentsdata = data;
@@ -52,10 +53,15 @@ filtering(){
     (data:Student)=>{
       this.studentsdata=data
     },
-    (err:any)=>{
+    (err:Student)=>{
       alert("internal server error")
     }
   )
+}
+
+view(){
+ this._router.navigateByUrl("/dashboard/studentdetails")
+ 
 }
 
 }

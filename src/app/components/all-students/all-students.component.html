@@ -7,6 +7,17 @@
     <option value="4">4</option>
 </select>
 
+<label for="" class="ms-5">column: </label>
+<select [(ngModel)]="column">
+    <option value="mobile">Mobile</option>
+    <option value="gender">Gender</option>
+</select>
+<label for="">order: </label>
+<select [(ngModel)]="order">
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
+</select>
+<button (click)="sorting()" class="btn btn-secondary">Sort</button>
 <table class="table table-bordered mt-4">
     <thead class="table-dark" align="center" style="vertical-align: middle;">
         <tr>

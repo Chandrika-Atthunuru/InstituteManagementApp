@@ -10,6 +10,8 @@ import { StudentService } from 'src/app/services/student.service';
 export class AllStudentsComponent {
 public studentsdata:any= [];
 public pageno:number=0;
+public column:string="";
+public order:string=""
 constructor(private _studentService:StudentService){
 _studentService.getstudents().subscribe(
   (data:Student)=>{
@@ -26,8 +28,19 @@ pagination(){
     (data:Student)=>{
       this.studentsdata=data;
     },
-    (err:any)=>{
+    (err:Student)=>{
       alert("internal error server")
+    }
+  )
+}
+
+sorting(){
+  this._studentService.getsortedstudents(this.column,this.order).subscribe(
+    (data:Student)=>{
+      this.studentsdata=data;
+    },
+    (err:Student)=>{
+      alert("internal server error")
     }
   )
 }

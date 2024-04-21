@@ -1,18 +1,18 @@
-<p>studentdetails works!</p>
-<h1>Personal information</h1>
+
+<h3>Personal information</h3>
 <h5>Name: {{studentdetails.name}}</h5>
 <h5>Gender: {{studentdetails.gender}}</h5>
 <h5>Mobile: {{studentdetails.mobile}}</h5>
 <h5>Email: {{studentdetails.email}}</h5>
 <h5>Batch: {{studentdetails.batch}}</h5>
-<h1>Address information</h1>
+<h3>Address information</h3>
 <h5>City: {{studentdetails.address.city}}</h5>
 <h5>Mandal: {{studentdetails.address.mandal}}</h5>
 <h5>District: {{studentdetails.address.district}}</h5>
 <h5>State: {{studentdetails.address.state}}</h5>
 <h5>Pincode: {{studentdetails.address.pincode}}</h5>
-<h1>Education information</h1>
-<table>
+<h3>Education information</h3>
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Qualification</th>
@@ -21,17 +21,21 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let studentdetail of studentdetails">
-            <td>{{studentdetail.qualification}}</td>
-            <td>{{studentdetail.year}}</td>
-            <td>{{studentdetail.percentage}}</td>
+        <tr>
+            <td>{{studentdetails.qualification}}</td>
+            <td>{{studentdetails.year}}</td>
+            <td>{{studentdetails.percentage}}</td>
         </tr>
     </tbody>
 </table>
-<h1>Company information</h1>
+<h3>Company information</h3>
 <h5>Name: {{studentdetails.company.name}}</h5>
 <h5>location: {{studentdetails.company.location}}</h5>
 <h5>package: {{studentdetails.company.package}}</h5>
 <h5>offerdate: {{studentdetails.company.offerDate}}</h5>
-<h1>Referral information</h1>
+<h3>Referral information</h3>
 <h5>sourceType: {{studentdetails.sourceType}}</h5>
+<h5>sourceForm: {{studentdetails.sourceForm}}</h5>
+<h5>Referralname: {{studentdetails.referralName}}</h5>
+
+<button (click)="back()" class="btn btn-warning">Back</button>

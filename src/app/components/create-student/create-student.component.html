@@ -1,5 +1,5 @@
 <div class="parent">
-    <h1>Create Student Data</h1>
+    <h1>{{id?'Edit student data':'Create Student Data'}}</h1>
   <form [formGroup]="studentform">
     <label for="">Name: </label>
     <input type="text" formControlName="name">
@@ -158,6 +158,6 @@
     </div>
     </div>
     <br>
-    <button [disabled]="studentform.invalid" (click)="submit()" class="btn btn-primary">Submit</button>
+    <button [disabled]="studentform.invalid" (click)="submit()" class="btn btn-primary">{{id?'Edit':'create'}}</button>
   </form>
 </div>

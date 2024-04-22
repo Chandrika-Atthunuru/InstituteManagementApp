@@ -49,7 +49,6 @@ _activatedRoute.params.subscribe(
   }
 
 )
-
   this.studentform.get('sourceType')?.valueChanges.subscribe(
     (data:any)=>{
       if(data=='direct'){
@@ -80,15 +79,29 @@ delete(i:number){
 }
 
 submit(){
-this.studentform.markAllAsTouched()
-this._studentService.poststudentdata(this.studentform.value).subscribe(
-  (data:Student)=>{
-    alert("created successfully")
-    this.studentform.reset();
-  },
-  (err:Student)=>{
-   alert("internal server error")
-  }
-)
+if(this.id){
+  this._studentService.editdetails(this.id,this.studentform.value).subscribe(
+   (data:Student)=>{
+    alert("Edited succesfully");
+    this.studentform.reset()
+   },
+   (err:Student)=>{
+    alert("Edit is failed")
+   }
+  )
+}
+else{
+  this.studentform.markAllAsTouched()
+  this._studentService.poststudentdata(this.studentform.value).subscribe(
+    (data:Student)=>{
+      alert("created successfully")
+      this.studentform.reset();
+    },
+    (err:Student)=>{
+     alert("internal server error")
+    }
+  )
+}
+
 }
 }

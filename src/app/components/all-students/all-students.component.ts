@@ -64,4 +64,8 @@ view(id:any){
  
 }
 
+edit(id:any){
+  this._router.navigateByUrl("/dashboard/editstudentdeatails/"+id)
+}
+
 }

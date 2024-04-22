@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Student } from 'src/app/models/student';
 import { Token } from 'src/app/models/token';
 import { StudentService } from 'src/app/services/student.service';
@@ -10,6 +11,7 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./create-student.component.css']
 })
 export class CreateStudentComponent {
+public id:any="";
 public studentform:FormGroup=new FormGroup({
   name:new FormControl(null,[Validators.required,Validators.minLength(3)]),
   gender:new FormControl(null,[Validators.required]),
@@ -32,7 +34,22 @@ public studentform:FormGroup=new FormGroup({
   }),
   sourceType:new FormControl(null,[Validators.required]),
 })
-constructor(private _studentService:StudentService){
+constructor(private _studentService:StudentService,private _activatedRoute:ActivatedRoute){
+_activatedRoute.params.subscribe(
+  (data:any)=>{
+   this.id=data.id;
+    if(this.id){
+      _studentService.getdetails(this.id).subscribe(
+        (data:Student)=>{
+          this.studentform.patchValue(data);
+        }
+       )
+    }
+   
+  }
+
+)
+
   this.studentform.get('sourceType')?.valueChanges.subscribe(
     (data:any)=>{
       if(data=='direct'){

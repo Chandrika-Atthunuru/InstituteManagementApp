@@ -13,7 +13,8 @@ const routes: Routes = [
   {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard],children:[
     {path:'create-student',component:CreateStudentComponent},
     {path:'all-students',component:AllStudentsComponent},
-    {path:'studentdetails/:id',component:StudentdetailsComponent}
+    {path:'studentdetails/:id',component:StudentdetailsComponent},
+    {path:'editstudentdeatails/:id',component:CreateStudentComponent}
   ]
   },
   {path:'',component:LoginComponent},
